@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,118 +8,110 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
         }
-        .wrapper {
+        #slider {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            position: relative;
         }
         .page {
-            min-width: 100vw;
-            height: 100vh;
-            scroll-snap-align: start;
+            min-width: 100%;
+            transition: transform 0.5s ease;
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-direction: column;
+            justify-content: center;
+            background-color: black;
         }
-        .page1 {
-            background-color: white;
+        h1 {
             color: #ffee04;
-            text-align: center;
         }
-        .page2 {
-            background-color: #2a2a2a;
-            color: white;
-            display: flex;
-            flex-direction: column;
+        .nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
         }
-        .section {
-            background-color: red;
-            margin: 20px;
-            padding: 20px;
-            flex: 1;
-        }
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-        @media (max-width: 768px) {
-            .portfolio {
-                grid-template-columns: 1fr;
-            }
+        .nav button {
+            background-color: #ffee04;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <div class="page page1">
-        <h1>Z1N Arquiteturas</h1>
-        <h2>José Luís Navarro</h2>
-        <p>CAU 1.5569-1</p>
-        <p>WhatsApp 16.9911.28533</p>
-        <p>ASSESSORIA ESPECIALIZADA EM ARQUITETURA</p>
-        <h3 style="color: #ffee04;">DESLIZE PARA CONHECER NOSSO TRABALHO</h3>
+    <div id="slider">
+        <div class="page" id="cover">
+            <h1>Z1N Arquiteturas</h1>
+            <p>Contact: José Luís Navarro</p>
+        </div>
+        <div class="page" id="services">
+            <h1>Experience / Services</h1>
+            <p>Details about services offered.</p>
+        </div>
+        <div class="page" id="portfolio1">
+            <h1>Portfolio - Folha 3</h1>
+            <img src="Folha 3.png" alt="Folha 3">
+        </div>
+        <div class="page" id="portfolio2">
+            <h1>Portfolio - Folha 4</h1>
+            <img src="Folha 4.png" alt="Folha 4">
+        </div>
+        <div class="page" id="portfolio3">
+            <h1>Portfolio - Folha 5</h1>
+            <img src="Folha 5.png" alt="Folha 5">
+        </div>
+        <div class="page" id="about">
+            <h1>About Us</h1>
+            <p>Information about Z1N Arquiteturas.</p>
+        </div>
+        <div class="page" id="differentials">
+            <h1>Differentials</h1>
+            <p>What makes us unique.</p>
+        </div>
+        <div class="page" id="contact">
+            <h1>Contact</h1>
+            <p>Contact information.</p>
+        </div>
     </div>
-    <div class="page page2">
-        <h2>EXPERIÊNCIA TÉCNICA, VISÃO ESTRATÉGICA E COMPROMISSO PROFISSIONAL</h2>
-        <div class="section">PROJETOS
-            <p>Detalhes sobre Projetos</p></div>
-        <div class="section">CONSULTORIAS
-            <p>Detalhes sobre Consultorias</p></div>
-        <div class="section">DESENVOLVIMENTO
-            <p>Detalhes sobre Desenvolvimento</p></div>
+    <div class="nav">
+        <button onclick="previousPage()">&#10094; Prev</button>
+        <button onclick="nextPage()">Next &#10095;</button>
     </div>
-    <div class="page page3 portfolio">
-        <h2>Portfolio - Page 3</h2>
-        <div>Project 1 (Image + Meterage)</div>
-        <div>Project 2 (Image + Meterage)</div>
-        <div>Project 3 (Image + Meterage)</div>
-        <div>Project 4 (Image + Meterage)</div>
-        <div>Project 5 (Image + Meterage)</div>
-        <div>Project 6 (Image + Meterage)</div>
-    </div>
-    <div class="page page4 portfolio">
-        <h2>Portfolio - Page 4</h2>
-        <div>Project 7 (Image + Meterage)</div>
-        <div>Project 8 (Image + Meterage)</div>
-        <div>Project 9 (Image + Meterage)</div>
-        <div>Project 10 (Image + Meterage)</div>
-        <div>Project 11 (Image + Meterage)</div>
-        <div>Project 12 (Image + Meterage)</div>
-    </div>
-    <div class="page page5">
-        <h2 style="color: #ffee04;">ARQUITETURA COM RESPONSABILIDADE, NÃO IMPROVISO DIGITAL</h2>
-        <p>Descriptive text about responsible architecture with an implication of thorough planning and execution.</p>
-    </div>
-    <div class="page page6 portfolio">
-        <h2>Portfolio - Page 6</h2>
-        <div>Project 13 (Image + Meterage)</div>
-        <div>Project 14 (Image + Meterage)</div>
-        <div>Project 15 (Image + Meterage)</div>
-        <div>Project 16 (Image + Meterage)</div>
-        <div>Project 17 (Image + Meterage)</div>
-        <div>Project 18 (Image + Meterage)</div>
-    </div>
-    <div class="page page7">
-        <h2 style="color: white;">ATENDIMENTOS REALIZADOS</h2>
-        <div class="section">DIFERENCIAL TÉCNICO
-            <p>Details about Technical Differential</p></div>
-        <div class="section">COMO TRABALHAMOS
-            <p>Details on Work Process</p></div>
-        <div class="section">EXPERIÊNCIA
-            <p>Details on Experience</p></div>
-    </div>
-    <div class="page page8">
-        <h1>Z1N Arquiteturas</h1>
-        <h3 style="color: #ffee04;">SOLICITE UMA ANÁLISE TÉCNICA</h3>
-        <p>Text about planning and analysis services.</p>
-    </div>
-</div>
-<script>
-    document.addEventListener('touchstart', () => {}, false);
-</script>
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+
+        function updateSlider() {
+            pages.forEach((page, index) => {
+                page.style.transform = 'translateX(' + (index - currentPage) * 100 + '%)';
+            });
+        }
+
+        function nextPage() {
+            currentPage = (currentPage + 1) % pages.length;
+            updateSlider();
+        }
+
+        function previousPage() {
+            currentPage = (currentPage - 1 + pages.length) % pages.length;
+            updateSlider();
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                nextPage();
+            } else if (event.key === 'ArrowLeft') {
+                previousPage();
+            }
+        });
+
+        // Touch and swipe gestures can be added for mobile responsiveness
+        // ... (This would require additional code for touch detection) 
+    </script>
 </body>
 </html>
